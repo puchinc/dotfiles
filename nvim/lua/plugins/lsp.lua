@@ -15,7 +15,6 @@ return {
                     "pyright",       -- Python
                     "ts_ls",         -- TypeScript/JavaScript
                     "rust_analyzer", -- Rust
-                    "gopls",         -- Go
                 },
                 automatic_installation = true,
             })
@@ -60,7 +59,7 @@ return {
             })
 
             -- 啟用所有 LSP server
-            vim.lsp.enable({ "lua_ls", "pyright", "ts_ls", "rust_analyzer", "gopls" })
+            vim.lsp.enable({ "lua_ls", "pyright", "ts_ls", "rust_analyzer" })
 
             -- LSP 按鍵映射（當 LSP attach 到 buffer 時生效）
             vim.api.nvim_create_autocmd("LspAttach", {
@@ -97,7 +96,6 @@ return {
                     javascript = { "prettierd", "prettier", stop_after_first = true },
                     typescript = { "prettierd", "prettier", stop_after_first = true },
                     json = { "prettierd", "prettier", stop_after_first = true },
-                    go = { "gofmt" },
                     rust = { "rustfmt" },
                 },
                 format_on_save = {

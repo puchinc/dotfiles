@@ -53,10 +53,12 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-# --- Prompt (ys theme) ---
+# --- Prompt (Catppuccin Mocha) ---
+# lavender=#b4befe teal=#94e2d5 green=#a6e3a1 yellow=#f9e2af
+# subtext0=#a6adc8 red=#f38ba8 mauve=#cba6f7
 PROMPT='
-%F{blue}#%f %F{cyan}%n%f @ %F{green}%m%f in %F{yellow}%~%f %F{white}[%*]%f %(?.%F{white}.%F{red})C:%?%f
-%F{red}$%f '
+%F{#b4befe}#%f %F{#94e2d5}%n%f @ %F{#a6e3a1}%m%f in %F{#f9e2af}%~%f %F{#a6adc8}[%*]%f %(?.%F{#a6adc8}.%F{#f38ba8})C:%?%f
+%F{#cba6f7}$%f '
 
 # --- Autosuggestions ---
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null || \
