@@ -1,22 +1,22 @@
 # Dotfiles
 
-這是 puchin 的開發環境配置，由 Claude Code 協助管理。
+This is puchin's development environment configuration, managed with Claude Code.
 
-## 環境
+## Environment
 
-- **終端:** Ghostty
-- **Shell:** zsh (macOS 原生，不用 Oh My Zsh)
-- **多工:** tmux
-- **編輯器:** Neovim (從 Vim 遷移過來)
-- **AI 工具:** Claude Code
-- **主題:** Catppuccin Mocha（全環境統一）
+- **Terminal:** Ghostty
+- **Shell:** zsh (macOS native, no Oh My Zsh)
+- **Multiplexer:** tmux
+- **Editor:** Neovim (migrated from Vim)
+- **AI Tool:** Claude Code
+- **Theme:** Catppuccin Mocha (unified across all configs)
 
-## 目錄結構
+## Directory Structure
 
 ```
 ~/dotfiles/
-├── CLAUDE.md          # 你正在看的這個檔案
-├── install.sh         # 一鍵安裝腳本（建立 symlink）
+├── CLAUDE.md          # This file
+├── install.sh         # One-shot install script (creates symlinks)
 ├── nvim/              # -> ~/.config/nvim
 │   ├── init.lua
 │   └── lua/plugins/
@@ -32,16 +32,16 @@
 └── tmux.conf          # -> ~/.tmux.conf
 ```
 
-## 規範
+## Conventions
 
-- Neovim 配置用 Lua，套件管理用 lazy.nvim
-- 偏好極簡配置，不加不需要的外掛
-- zsh 不用 Oh My Zsh，保持 .zshrc 精簡
-- 所有配置使用 Catppuccin Mocha 主題
-- 修改配置後確保 symlink 結構不被破壞
+- Neovim config uses Lua, plugin manager is lazy.nvim
+- Prefer minimal config, don't add unnecessary plugins
+- zsh without Oh My Zsh, keep .zshrc lean
+- All configs use Catppuccin Mocha theme
+- After modifying configs, ensure the symlink structure is not broken
 
-## 常用指令
+## Common Commands
 
-- `bash install.sh` — 部署所有 symlink
-- `nvim` — 啟動 Neovim
-- `brew install neovim ripgrep fd` — 安裝依賴
+- `bash install.sh` — Deploy all symlinks
+- `nvim` — Launch Neovim
+- `brew install neovim ripgrep fd` — Install dependencies

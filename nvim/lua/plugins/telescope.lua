@@ -1,5 +1,5 @@
--- ━━━ Telescope：檔案搜尋和導航 ━━━
--- 需要先安裝: brew install ripgrep fd
+-- ━━━ Telescope: File Search and Navigation ━━━
+-- Prerequisites: brew install ripgrep fd
 return {
     {
         "nvim-telescope/telescope.nvim",
@@ -30,17 +30,17 @@ return {
 
             telescope.load_extension("fzf")
 
-            -- 按鍵映射
+            -- Keymaps
             local builtin = require("telescope.builtin")
             local map = vim.keymap.set
-            map("n", "<leader>ff", builtin.find_files,  { desc = "搜尋檔案" })
-            map("n", "<leader>fg", builtin.live_grep,   { desc = "全域搜尋文字" })
-            map("n", "<leader>fb", builtin.buffers,     { desc = "切換 Buffer" })
-            map("n", "<leader>fh", builtin.help_tags,   { desc = "搜尋說明文件" })
-            map("n", "<leader>fr", builtin.oldfiles,    { desc = "最近開啟的檔案" })
-            map("n", "<leader>fc", builtin.git_commits, { desc = "Git Commits" })
-            map("n", "<leader>fs", builtin.git_status,  { desc = "Git Status" })
-            -- gd / gr 由 LSP 設定（見 lsp.lua）
+            map("n", "<leader>ff", builtin.find_files,  { desc = "Find files" })
+            map("n", "<leader>fg", builtin.live_grep,   { desc = "Live grep" })
+            map("n", "<leader>fb", builtin.buffers,     { desc = "Switch buffer" })
+            map("n", "<leader>fh", builtin.help_tags,   { desc = "Search help" })
+            map("n", "<leader>fr", builtin.oldfiles,    { desc = "Recent files" })
+            map("n", "<leader>fc", builtin.git_commits, { desc = "Git commits" })
+            map("n", "<leader>fs", builtin.git_status,  { desc = "Git status" })
+            -- gd / gr are set by LSP (see lsp.lua)
         end,
     },
 }

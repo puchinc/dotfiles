@@ -1,6 +1,6 @@
--- ━━━ LSP + 自動補全 ━━━
+-- ━━━ LSP + Autocompletion ━━━
 return {
-    -- Mason：自動安裝 LSP Server
+    -- Mason: auto-install LSP servers
     {
         "mason-org/mason.nvim",
         opts = {},
@@ -21,7 +21,7 @@ return {
         end,
     },
 
-    -- 自動補全引擎（blink.cmp - 比 nvim-cmp 更快更簡單）
+    -- Autocompletion engine (blink.cmp - faster and simpler than nvim-cmp)
     {
         "saghen/blink.cmp",
         version = "1.*",
@@ -32,7 +32,7 @@ return {
         config = function()
             require("blink.cmp").setup({
                 keymap = {
-                    preset = "super-tab",  -- Tab/S-Tab 選擇，Enter 確認
+                    preset = "super-tab",  -- Tab/S-Tab to select, Enter to confirm
                 },
                 appearance = {
                     nerd_font_variant = "mono",
@@ -42,13 +42,13 @@ return {
                 },
             })
 
-            -- LSP 設定（Neovim 0.11+ 原生 API，不再用 require("lspconfig")）
-            -- 全域 capabilities（套用到所有 LSP server）
+            -- LSP config (Neovim 0.11+ native API, no longer using require("lspconfig"))
+            -- Global capabilities (applied to all LSP servers)
             vim.lsp.config("*", {
                 capabilities = require("blink.cmp").get_lsp_capabilities(),
             })
 
-            -- Lua LSP 特殊設定（讓它認識 vim 全域變數）
+            -- Lua LSP special config (make it aware of the vim global)
             vim.lsp.config("lua_ls", {
                 settings = {
                     Lua = {
@@ -58,10 +58,10 @@ return {
                 },
             })
 
-            -- 啟用所有 LSP server
+            -- Enable all LSP servers
             vim.lsp.enable({ "lua_ls", "pyright", "ts_ls", "rust_analyzer" })
 
-            -- LSP 按鍵映射（當 LSP attach 到 buffer 時生效）
+            -- LSP keymaps (active when LSP attaches to a buffer)
             vim.api.nvim_create_autocmd("LspAttach", {
                 callback = function(event)
                     local map = function(keys, func, desc)
@@ -71,20 +71,20 @@ return {
                     end
                     local tb = require("telescope.builtin")
 
-                    map("gd", tb.lsp_definitions,      "跳到定義")
-                    map("gr", tb.lsp_references,        "查看引用")
-                    map("gI", tb.lsp_implementations,   "跳到實作")
-                    map("gy", tb.lsp_type_definitions,  "跳到型別定義")
-                    map("K",  vim.lsp.buf.hover,        "懸浮文件")
-                    map("<leader>rn", vim.lsp.buf.rename,       "重新命名")
-                    map("<leader>ca", vim.lsp.buf.code_action,  "程式碼操作")
-                    map("<leader>ds", tb.lsp_document_symbols,  "文件符號")
+                    map("gd", tb.lsp_definitions,      "Go to definition")
+                    map("gr", tb.lsp_references,        "Find references")
+                    map("gI", tb.lsp_implementations,   "Go to implementation")
+                    map("gy", tb.lsp_type_definitions,  "Go to type definition")
+                    map("K",  vim.lsp.buf.hover,        "Hover documentation")
+                    map("<leader>rn", vim.lsp.buf.rename,       "Rename")
+                    map("<leader>ca", vim.lsp.buf.code_action,  "Code action")
+                    map("<leader>ds", tb.lsp_document_symbols,  "Document symbols")
                 end,
             })
         end,
     },
 
-    -- 格式化
+    -- Formatting
     {
         "stevearc/conform.nvim",
         event = "BufWritePre",
@@ -105,7 +105,7 @@ return {
             })
             vim.keymap.set("n", "<leader>fo", function()
                 require("conform").format({ async = true })
-            end, { desc = "格式化" })
+            end, { desc = "Format" })
         end,
     },
 }

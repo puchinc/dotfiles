@@ -1,4 +1,4 @@
--- ━━━ Treesitter：語法高亮和程式碼解析 ━━━
+-- ━━━ Treesitter: Syntax Highlighting and Code Parsing ━━━
 return {
     {
         "nvim-treesitter/nvim-treesitter",

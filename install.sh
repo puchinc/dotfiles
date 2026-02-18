@@ -1,31 +1,31 @@
 #!/bin/bash
-# dotfiles 安裝腳本
-# 用法: cd ~/dotfiles && bash install.sh
+# dotfiles install script
+# Usage: cd ~/dotfiles && bash install.sh
 
 set -e
 DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
-echo "=== Dotfiles 安裝 ==="
-echo "來源: $DOTFILES"
+echo "=== Dotfiles Install ==="
+echo "Source: $DOTFILES"
 echo ""
 
-# 建立備份資料夾
+# Create backup directory
 BACKUP="$HOME/.dotfiles-backup-$(date +%Y%m%d%H%M%S)"
 mkdir -p "$BACKUP"
 
-# 輔助函數：備份後建立 symlink
+# Helper: backup existing file then create symlink
 link_it() {
     local src="$1"
     local dest="$2"
 
     if [ -e "$dest" ] || [ -L "$dest" ]; then
-        echo "  備份: $dest -> $BACKUP/"
+        echo "  Backup: $dest -> $BACKUP/"
         mv "$dest" "$BACKUP/"
     fi
 
     mkdir -p "$(dirname "$dest")"
     ln -sf "$src" "$dest"
-    echo "  連結: $dest -> $src"
+    echo "  Link: $dest -> $src"
 }
 
 # ━━━ Neovim ━━━
@@ -57,12 +57,12 @@ if [ -d "$DOTFILES/claude" ]; then
     link_it "$DOTFILES/claude/settings.json" "$HOME/.claude/settings.json"
 fi
 
-# ━━━ CLAUDE.md（讓 Claude Code 了解這個 repo）━━━
+# ━━━ CLAUDE.md (lets Claude Code understand this repo) ━━━
 echo ""
-echo "=== 完成 ==="
-echo "舊檔案備份在: $BACKUP"
+echo "=== Done ==="
+echo "Old files backed up to: $BACKUP"
 echo ""
-echo "下一步："
-echo "  1. 重啟終端"
-echo "  2. 開 nvim，等外掛安裝完成"
-echo "  3. cd ~/dotfiles && claude  （讓 Claude Code 管理你的配置）"
+echo "Next steps:"
+echo "  1. Restart terminal"
+echo "  2. Open nvim and wait for plugins to install"
+echo "  3. cd ~/dotfiles && claude  (let Claude Code manage your config)"

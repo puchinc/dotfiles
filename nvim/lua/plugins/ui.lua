@@ -1,6 +1,6 @@
--- ━━━ UI 元件 ━━━
+-- ━━━ UI Components ━━━
 return {
-    -- 狀態列
+    -- Status line
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -23,7 +23,7 @@ return {
         end,
     },
 
-    -- 縮排指引線
+    -- Indent guides
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
@@ -33,20 +33,20 @@ return {
         },
     },
 
-    -- 按鍵提示（按 Leader 後會顯示可用的按鍵）
+    -- Key hints (shows available keys after pressing Leader)
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
         opts = {},
     },
 
-    -- Git 狀態標記（左側欄顯示新增/修改/刪除）
+    -- Git status signs (shows added/modified/deleted in the gutter)
     {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
         opts = {},
     },
 
-    -- 圖示支援
+    -- Icon support
     { "nvim-tree/nvim-web-devicons", lazy = true },
 }

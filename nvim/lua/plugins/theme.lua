@@ -1,4 +1,4 @@
--- ━━━ 主題：Catppuccin Mocha ━━━
+-- ━━━ Theme: Catppuccin Mocha ━━━
 return {
     {
         "catppuccin/nvim",
